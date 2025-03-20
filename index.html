@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ROI Calculator</title>
+    <style>
+        /* Simple styles for better appearance */
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            max-width: 500px;
+            margin: auto;
+        }
+        input {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h2>ROI Calculator</h2>
+    <form id="roiForm">
+        <label for="workersBefore">Number of workers (current setup):</label><br>
+        <input type="number" id="workersBefore" required><br>
+        
+        <label for="workersAfter">Number of workers (after automation):</label><br>
+        <input type="number" id="workersAfter" required><br>
+        
+        <label for="costSavings">Cost savings due to automation ($):</label><br>
+        <input type="number" id="costSavings" required><br>
+        
+        <label for="investmentCost">Investment cost for automation ($):</label><br>
+        <input type="number" id="investmentCost" required><br>
+        
+        <button type="button" onclick="calculateROI()">Calculate ROI</button>
+    </form>
+
+    <h3>ROI: <span id="roiResult"></span>%</h3>
+
+    <script>
+        function calculateROI() {
+            const workersBefore = parseInt(document.getElementById('workersBefore').value);
+            const workersAfter = parseInt(document.getElementById('workersAfter').value);
+            const costSavings = parseFloat(document.getElementById('costSavings').value);
+            const investmentCost = parseFloat(document.getElementById('investmentCost').value);
+
+            if (workersBefore > 0 && workersAfter >= 0 && costSavings >= 0 && investmentCost > 0) {
+                const roi = ((costSavings - investmentCost) / investmentCost) * 100;
+                document.getElementById('roiResult').innerText = roi.toFixed(2);
+            } else {
+                alert("Please enter valid numbers");
+            }
+        }
+    </script>
+</body>
+</html>
