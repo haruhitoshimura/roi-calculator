@@ -8,17 +8,18 @@
         /* Styles for responsive design */
         * {
             box-sizing: border-box;
+            margin: 0;
+            padding: 0;
         }
 
         body {
             font-family: Arial, sans-serif;
-            margin: 0;
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
+            min-height: 100vh;
             background-color: #f4f4f9;
-            overflow: hidden;
+            padding: 10px;
         }
 
         .container {
@@ -28,6 +29,7 @@
             padding: 20px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             border-radius: 8px;
+            overflow: auto; /* Ensure the whole container is scrollable if necessary */
         }
 
         form {
@@ -73,7 +75,7 @@
 </head>
 <body>
     <div class="container">
-        <h2>ROI 投資回収の計算</h2>
+        <h2>投資回収の計算</h2>
         <form id="roiForm">
             <label for="workersBefore">Number of workers (current setup):</label>
             <input type="number" id="workersBefore" required>
