@@ -5,21 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ROI Calculator</title>
     <style>
-        /* Styles for responsive design */
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
+        /* Simplified styles for broad compatibility */
         body {
             font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 10px;
             display: flex;
             justify-content: center;
             align-items: center;
-            min-height: 100vh;
             background-color: #f4f4f9;
-            padding: 10px;
         }
 
         .container {
@@ -29,15 +23,20 @@
             padding: 20px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             border-radius: 8px;
-            overflow: auto; /* Ensure the whole container is scrollable if necessary */
         }
 
         form {
-            display: grid;
-            gap: 15px;
+            display: block;
+        }
+
+        label, input, button {
+            display: block;
+            width: 100%;
+            margin-bottom: 10px;
         }
 
         label {
+            margin-top: 10px;
             font-weight: bold;
         }
 
@@ -45,37 +44,29 @@
             padding: 10px;
             border: 1px solid #ccc;
             border-radius: 4px;
-            width: 100%;
         }
 
         button {
-            padding: 10px;
+            padding: 12px;
             background-color: #007BFF;
             color: white;
             border: none;
             border-radius: 4px;
             cursor: pointer;
-            width: 100%;
         }
 
         button:hover {
             background-color: #0056b3;
         }
 
-        h3 {
-            margin-top: 20px;
-        }
-
-        @media (min-width: 768px) {
-            .container {
-                padding: 30px;
-            }
+        h2, h3 {
+            text-align: center;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h2>投資回収の計算</h2>
+        <h2>ROI Calculator</h2>
         <form id="roiForm">
             <label for="workersBefore">Number of workers (current setup):</label>
             <input type="number" id="workersBefore" required>
@@ -97,8 +88,8 @@
 
     <script>
         function calculateROI() {
-            const workersBefore = parseInt(document.getElementById('workersBefore').value);
-            const workersAfter = parseInt(document.getElementById('workersAfter').value);
+            const workersBefore = parseInt(document.getElementById('workersBefore').value, 10);
+            const workersAfter = parseInt(document.getElementById('workersAfter').value, 10);
             const costSavings = parseFloat(document.getElementById('costSavings').value);
             const investmentCost = parseFloat(document.getElementById('investmentCost').value);
 
